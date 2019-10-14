@@ -1,0 +1,225 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="css/bootstrap-grid.min.css" type="text/css">
+    
+	<title>Bé tập tính</title>
+    <script type="text/javascript">
+
+    function calculate() {
+
+        var x = document.getElementById("01").value;
+        var y = document.getElementById("02").value;
+        if(x=="")
+            {
+                document.getElementById("error").innerHTML="Hãy nhập số thứ nhất";
+
+            }
+        if(y=="")
+            {
+                document.getElementById("error").innerHTML="Hãy nhập số thứ hai";
+
+            }
+        if(isNaN(x))
+        {
+                
+            document.getElementById("error").innerHTML="Giá trị ở ô số thứ nhất không là số. \n";
+
+        }
+        
+        if(isNaN(y))
+        {
+            document.getElementById("error").innerHTML="Giá trị ở ô số thứ hai không là số. \n";
+
+        }    
+        
+        
+
+       
+    
+        
+        if(!isNaN(x)&&!isNaN(y)&& x!=""&&y!="")
+        {
+            var checkbox = document.getElementsByName("optradio");
+            var num=parseFloat(x);
+            var num2=parseFloat(y);
+            var error="";
+            document.getElementById("error").innerHTML="";
+
+                for (var i = 0; i < checkbox.length; i++){
+                    if(document.getElementById("Cong").checked===false
+                        &&document.getElementById("Tru").checked===false
+                        &&document.getElementById("Nhan").checked===false
+                        &&document.getElementById("Chia").checked===false)
+                    {
+                        document.getElementById("error").innerHTML="Hãy chọn phép tính";
+                    }
+
+                    if (checkbox[0].checked === true){
+
+                        sum(num,num2);
+
+                    }
+                    if (checkbox[1].checked === true){
+                        sub(num,num2);
+
+                    }
+                    if (checkbox[2].checked === true){
+                        compute(num,num2);
+
+                    }
+                    if (checkbox[3].checked === true){
+                        divide(num,num2);
+
+                    }
+
+                }
+        }
+        
+                
+       }
+        
+        
+
+      
+        
+        
+
+        function sum(num,num2) {
+        
+        
+        var result=0;
+        result=num+num2;
+        document.getElementById("resultBox").value=result;
+        
+        }
+
+        function sub(num,num2) {
+         
+        
+        var result=0;
+        result=num-num2;
+        document.getElementById("resultBox").value=result;
+
+
+        }
+        function compute(num,num2) {
+       
+        var result=0;
+        result=num*num2;
+        document.getElementById("resultBox").value=result;
+
+
+        }
+
+        function divide(num,num2) {
+        
+        var result=0;
+        result=num/num2;
+        document.getElementById("resultBox").value=result;
+
+
+        }
+       
+
+        
+        </script>
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 18px">Số thứ nhất</div>
+            </div>
+            <div class="col">
+                            <input type="text" name="expr1" size="17"id ="01" />            
+            </div>
+            <div class="col">
+                    <div class="form-check">
+                            <label class="radio-inline">
+                                    <input type="radio" name="optradio" id="Cong"  >Cộng
+                                  </label>
+                                  <label class="radio-inline">
+                                    <input type="radio" name="optradio"id="Tru">Trừ
+                                  </label>
+                                 
+                     </div>
+                    
+            </div>
+        </div>
+        <div class="row">
+                <div class="col">
+                        <div style="font-family: Arial, Helvetica, sans-serif; font-size: 18px">Số thứ hai</div>
+                </div>
+                <div class="col">
+                    <input type="text" name="expr2" size="17" id ="02">
+                </div>
+                <div class="col">
+                        <div class="form-check">
+                                <label class="radio-inline">
+                                        <input type="radio" name="optradio"id="Nhan" >Nhân
+                                      </label>
+                                      <label class="radio-inline">
+                                        <input type="radio" name="optradio" id="Chia">Chia
+                                      </label>
+                                     
+                         </div>
+                        
+                </div>
+        </div>
+
+        <div class="row">
+                <div class="col">
+                        <div style="font-family: Arial, Helvetica, sans-serif; font-size: 18px">Kết quả</div>
+                </div>
+                <div class="col">
+                    <input type="text" id="resultBox" size="17">
+                </div>
+                <div class="col">
+
+                        <input type="button" value="Tính"id="Calculate" onclick="calculate()">         
+
+                        
+                </div>
+        </div>
+    <div class="row">
+        <div class="col-4">
+            <div style="font-family: Arial, Helvetica, sans-serif; font-size: 18px">Thông báo </div>
+            
+        </div>
+        <div class="col-8" >
+               <span id="error" name="notify"style="margin-left: 60 dp;color:red;"></span>
+        </div>
+    </div>
+    </div>
+            
+            
+            
+                       
+  
+    </form>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
